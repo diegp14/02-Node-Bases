@@ -3,9 +3,19 @@
 //require('./js-foundation/02-destructuring');
 //const { getUserById } = require('./js-foundation/04-arrows');
 
-const { buildMakePerson } = require('./js-foundation/05-factory');
-const { getId, getAge } = require('./plugins');
-const { getPokemonById, getPokemonByIdAsync, getPokemonByIdAdapter } = require('./js-foundation/06-promises');
+//const { buildMakePerson } = require('./js-foundation/05-factory');
+//const { getId, getAge } = require('./plugins');
+//const { getPokemonById, getPokemonByIdAsync, getPokemonByIdAdapter } = require('./js-foundation/06-promises');
+
+const { buildLogger } = require('./plugins');
+
+const logger = buildLogger('app');
+
+logger.log('Application has started');
+logger.error('This is a sample error message');
+
+
+
 
 // const userId = 2;
 
@@ -24,23 +34,23 @@ const { getPokemonById, getPokemonByIdAsync, getPokemonByIdAdapter } = require('
 
 
 // Example Promise Usage
-const pokemonId = 25;
-const pokemon = getPokemonById(pokemonId).then((name) => {
-    console.log(`Promise: ${name}`);
-}).catch((error) => {
-    console.error('Error fetching Pokemon:', error);
-});
+// const pokemonId = 25;
+// const pokemon = getPokemonById(pokemonId).then((name) => {
+//     console.log(`Promise: ${name}`);
+// }).catch((error) => {
+//     console.error('Error fetching Pokemon:', error);
+// });
 
 
-const fetchPokemon = async (id) => { 
-    const name = await getPokemonByIdAsync(id);
-    console.log(`Async/Await: ${name}`);
-}
+// const fetchPokemon = async (id) => { 
+//     const name = await getPokemonByIdAsync(id);
+//     console.log(`Async/Await: ${name}`);
+// }
 
-const fetchPokemonAdapter = async (id) => { 
-    const name = await getPokemonByIdAdapter(id);
-    console.log(`Adapter: ${name}`);
-}
+// const fetchPokemonAdapter = async (id) => { 
+//     const name = await getPokemonByIdAdapter(id);
+//     console.log(`Adapter: ${name}`);
+// }
 
-fetchPokemon(pokemonId);
-fetchPokemonAdapter(pokemonId);
+// fetchPokemon(pokemonId);
+// fetchPokemonAdapter(pokemonId);
